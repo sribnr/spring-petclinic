@@ -22,17 +22,17 @@ Jenkins Pipeline Stages: Build, test, upload artifact to JFrog Artifactory Repos
 
 ## Supported Files for Jenkins Pipeline.
 
-[Jenkinsfile](https://github.com/sribnr/spring-petclinic.git/files/default/Jenkinsfile)
+[Jenkinsfile](https://github.com/sribnr/spring-petclinic/blob/main/files/default/Jenkinsfile)
 
-[Dockerfile](https://github.com/sribnr/spring-petclinic.git/files/default/Dockerfile)
+[Dockerfile](https://github.com/sribnr/spring-petclinic/blob/main/files/default/Dockerfile)
 
-[settings.xml](https://github.com/sribnr/spring-petclinic.git/files/default/Dockerfile)
+[settings.xml](https://github.com/sribnr/spring-petclinic/blob/main/files/default/Dockerfile)
 
-[pom.xml](https://github.com/sribnr/spring-petclinic.git/files/default/pom.xml)
+[pom.xml](https://github.com/sribnr/spring-petclinic/blob/main/files/default/pom.xml)
 >Note: Contains changes to upload artifact to JFrog Artifactory
 
 ## Consolelog
-[consoleText.txt](https://github.com/sribnr/spring-petclinic.git/files/default/consoleText.txt)
+[consoleText.txt](https://github.com/sribnr/spring-petclinic/blob/main/files/default/consoleText.txt)
 
 ## Run Petclinic locally using Docker Image
 Docker Image to Pull:
