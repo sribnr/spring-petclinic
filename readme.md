@@ -10,10 +10,10 @@ Jenkins CICD Pipeline spring-petclinic.
 ```
 Jenkins Pipeline http://3.17.13.87:8080/job/spring-petclinic/
 ```
-<img width="1042" alt="spring-petclinic" src="https://github.com/sribnr/spring-petclinic.git/files/default/pipeline-job.png">
-<img width="1042" alt="spring-petclinic" src="https://github.com/sribnr/spring-petclinic.git/files/default/pipeline-job-run.png">
-<img width="1042" alt="spring-petclinic-package" src="https://github.com/sribnr/spring-petclinic.git/files/default/artifactory-snapshot.png">
-<img width="1042" alt="spring-petclinic-jcenter" src="https://github.com/sribnr/spring-petclinic.git/files/default/jcenter-remote-repo.png">
+<img width="1042" alt="spring-petclinic" src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/pipeline-job.png">
+<img width="1042" alt="spring-petclinic" src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/pipeline-job-run.png">
+<img width="1042" alt="spring-petclinic-package" src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/artifactory-snapshot.png">
+<img width="1042" alt="spring-petclinic-jcenter" src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/Jcenter-remote-repo.png">
 
 Jenkins Pipeline Stages: Build, test, upload artifact to JFrog Artifactory Repository and Build a Docker Image.
 
@@ -28,10 +28,10 @@ Jenkins Pipeline Stages: Build, test, upload artifact to JFrog Artifactory Repos
 [pom.xml](https://github.com/sribnr/spring-petclinic.git/files/default/pom.xml)
 >Note: Contains changes to upload artifact to JFrog Artifactory
 
-
+## Run Petclinic locally using Docker Image
 Docker Image to Pull:
 
-<img width=“1042” alt=“docker-hub” src="https://github.com/sribnr/spring-petclinic.git/files/default/docker-hub.png">
+<img width=“1042” alt=“docker-hub” src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/docker-hub.png">
 
 ```
 docker pull sribnr/spring-petclinic
@@ -39,7 +39,7 @@ docker run -d -p 8080:8080 sribnr/spring-petclinic
 ```
 
 You can then access the Petclinic at [http://localhost:8080](http://localhost:8080) in your browser.
-<img width="1042" alt="petclinic-screenshot" src="https://https://github.com/sribnr/spring-petclinic.git/files/default/petclinic-app.png">
+<img width="1042" alt="petclinic-screenshot" src="https://github.com/sribnr/spring-petclinic/blob/main/files/default/petclinic-app.png">
 
 ## Looking for something in particular?
 
