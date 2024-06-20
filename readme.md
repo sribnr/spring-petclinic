@@ -6,6 +6,9 @@
 ---
 Spring Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/) You can build a jar file and run it from the command line (it should work just as well with Java 17 or newer):
 
+```bash
+git clone https://github.com/sribnr/spring-petclinic.git
+```
 Jenkins CICD Pipeline spring-petclinic.
 ```
 Jenkins Pipeline http://3.17.13.87:8080/job/spring-petclinic/
