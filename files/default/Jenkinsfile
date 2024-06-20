@@ -10,20 +10,20 @@ pipeline {
         jdk 'jdk_17.0.11'
     }
     stages {
-        stage('Clean Checkout') {
+    stage('Checkout') {
         steps {
             cleanWs()
             git branch: 'main', poll: false, url: 'https://github.com/sribnr/spring-petclinic.git'
         }
     }
     stage('Build') {
-        steps {    
+        steps {
         sh 'mvn -s /var/lib/jenkins/settings.xml clean deploy -DskipTests' 
     }
     }
-    stage('RunTest') {
+    stage('Test') {
         steps {
-            sh 'mvn -s /var/lib/jenkins/settings.xml test'
+            sh 'mvn -s /var/lib/jenkins/settings.xml test' 
         }
     }
    stage('Docker Build') {
@@ -47,9 +47,11 @@ pipeline {
      }
     }
 }
-post {
-    always {
-        sh 'docker logout'
-    }
 }
+    post {
+        always {
+            sh 'docker logout'
+            
+        }
+}    
 }

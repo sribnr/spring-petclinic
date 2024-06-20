@@ -1,0 +1,929 @@
+Started by user sri b
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/spring-petclinic
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] cleanWs
+[2024-06-20T16:00:01.706Z] [WS-CLEANUP] Deleting project workspace...
+[2024-06-20T16:00:01.709Z] [WS-CLEANUP] Deferred wipeout is used...
+[2024-06-20T16:00:01.742Z] [WS-CLEANUP] done
+[Pipeline] git
+[2024-06-20T16:00:01.785Z] The recommended git tool is: NONE
+[2024-06-20T16:00:01.799Z] No credentials specified
+[2024-06-20T16:00:01.802Z] Cloning the remote Git repository
+[2024-06-20T16:00:01.808Z] Cloning repository https://github.com/sribnr/spring-petclinic.git
+[2024-06-20T16:00:01.810Z]  > /usr/bin/git init /var/lib/jenkins/workspace/spring-petclinic # timeout=10
+[2024-06-20T16:00:01.879Z] Fetching upstream changes from https://github.com/sribnr/spring-petclinic.git
+[2024-06-20T16:00:01.880Z]  > /usr/bin/git --version # timeout=10
+[2024-06-20T16:00:01.885Z]  > git --version # 'git version 2.40.1'
+[2024-06-20T16:00:01.885Z]  > /usr/bin/git fetch --tags --force --progress -- https://github.com/sribnr/spring-petclinic.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2024-06-20T16:00:02.262Z]  > /usr/bin/git config remote.origin.url https://github.com/sribnr/spring-petclinic.git # timeout=10
+[2024-06-20T16:00:02.272Z]  > /usr/bin/git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2024-06-20T16:00:02.447Z] Avoid second fetch
+[2024-06-20T16:00:02.449Z]  > /usr/bin/git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+[2024-06-20T16:00:02.457Z] Checking out Revision ddfb9bf92ab9a66e8303e1ed9fb28f841516caa2 (refs/remotes/origin/main)
+[2024-06-20T16:00:02.458Z]  > /usr/bin/git config core.sparsecheckout # timeout=10
+[2024-06-20T16:00:02.469Z]  > /usr/bin/git checkout -f ddfb9bf92ab9a66e8303e1ed9fb28f841516caa2 # timeout=10
+[2024-06-20T16:00:02.493Z]  > /usr/bin/git branch -a -v --no-abbrev # timeout=10
+[2024-06-20T16:00:02.500Z]  > /usr/bin/git checkout -b main ddfb9bf92ab9a66e8303e1ed9fb28f841516caa2 # timeout=10
+[2024-06-20T16:00:02.575Z] Commit message: "initial commit"
+[2024-06-20T16:00:02.578Z]  > /usr/bin/git rev-list --no-walk be13852d293e0875583796f63203dcdaac176a12 # timeout=10
+[2024-06-20T16:00:02.583Z] First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+[2024-06-20T16:00:03.197Z] + mvn -s /var/lib/jenkins/settings.xml clean deploy -DskipTests
+[2024-06-20T16:00:06.439Z] [INFO] Scanning for projects...
+[2024-06-20T16:00:06.990Z] [INFO] 
+[2024-06-20T16:00:06.990Z] [INFO] ------------< org.springframework.samples:spring-petclinic >------------
+[2024-06-20T16:00:06.990Z] [INFO] Building petclinic 3.3.0-SNAPSHOT
+[2024-06-20T16:00:06.990Z] [INFO]   from pom.xml
+[2024-06-20T16:00:06.990Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2024-06-20T16:00:08.335Z] [INFO] 
+[2024-06-20T16:00:08.335Z] [INFO] --- clean:3.3.2:clean (default-clean) @ spring-petclinic ---
+[2024-06-20T16:00:08.585Z] [INFO] 
+[2024-06-20T16:00:08.585Z] [INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
+[2024-06-20T16:00:08.836Z] [INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[2024-06-20T16:00:08.836Z] [INFO] 
+[2024-06-20T16:00:08.836Z] [INFO] --- spring-javaformat:0.0.41:validate (default) @ spring-petclinic ---
+[2024-06-20T16:00:10.180Z] [INFO] 
+[2024-06-20T16:00:10.180Z] [INFO] --- checkstyle:3.3.1:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[2024-06-20T16:00:12.665Z] [INFO] You have 0 Checkstyle violations.
+[2024-06-20T16:00:12.665Z] [INFO] 
+[2024-06-20T16:00:12.665Z] [INFO] --- jacoco:0.8.12:prepare-agent (default) @ spring-petclinic ---
+[2024-06-20T16:00:12.665Z] [INFO] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.12/org.jacoco.agent-0.8.12-runtime.jar=destfile=/var/lib/jenkins/workspace/spring-petclinic/target/jacoco.exec
+[2024-06-20T16:00:12.665Z] [INFO] 
+[2024-06-20T16:00:12.665Z] [INFO] --- git-commit-id:8.0.2:revision (default) @ spring-petclinic ---
+[2024-06-20T16:00:12.915Z] [INFO] dotGitDirectory '/var/lib/jenkins/workspace/spring-petclinic/.git'
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.build.user.name with value 
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.build.user.email with value 
+[2024-06-20T16:00:13.467Z] [INFO] Using environment variable based branch name. GIT_BRANCH = null
+[2024-06-20T16:00:13.467Z] [INFO] Detected that running on CI environment, but using repository branch, no GIT_BRANCH detected.
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.branch with value main
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.commit.id.describe with value ddfb9bf
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.commit.id.describe-short with value ddfb9bf
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.commit.id with value ddfb9bf92ab9a66e8303e1ed9fb28f841516caa2
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.commit.id.abbrev with value ddfb9bf
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.dirty with value false
+[2024-06-20T16:00:13.467Z] [INFO] Collected git.commit.user.name with value Bandaru, Srikant
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.user.email with value srikant.bandaru@ihg.com
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.message.full with value initial commit
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.message.short with value initial commit
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.author.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.commit.committer.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.remote.origin.url with value https://github.com/sribnr/spring-petclinic.git
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.tags with value 
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.tag with value 
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.closest.tag.name with value 
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.closest.tag.commit.count with value 
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.total.commit.count with value 1
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.local.branch.ahead with value NO_REMOTE
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.local.branch.behind with value NO_REMOTE
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.build.time with value 2023-05-10T07:42:50Z
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.build.version with value 3.3.0-SNAPSHOT
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.build.host with value ip-172-31-17-165.us-east-2.compute.internal
+[2024-06-20T16:00:13.718Z] [INFO] Collected git.build.number with value 18
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.tags' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.build.version' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.branch' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.build.host' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.build.number' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.commit.id' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.commit.user.email' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.local.branch.behind' in results
+[2024-06-20T16:00:13.718Z] [INFO] including property 'git.commit.author.time' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.build.user.name' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.dirty' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.closest.tag.commit.count' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.user.name' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.id.abbrev' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.id.describe-short' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.total.commit.count' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.id.describe' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.build.user.email' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.message.short' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.committer.time' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.tag' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.closest.tag.name' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.local.branch.ahead' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.time' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.build.time' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.commit.message.full' in results
+[2024-06-20T16:00:13.719Z] [INFO] including property 'git.remote.origin.url' in results
+[2024-06-20T16:00:13.719Z] [INFO] Writing properties file [/var/lib/jenkins/workspace/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[2024-06-20T16:00:13.719Z] [INFO] 
+[2024-06-20T16:00:13.719Z] [INFO] --- spring-boot:3.3.0:build-info (default) @ spring-petclinic ---
+[2024-06-20T16:00:14.270Z] [INFO] 
+[2024-06-20T16:00:14.270Z] [INFO] --- cyclonedx:2.8.0:makeAggregateBom (default) @ spring-petclinic ---
+[2024-06-20T16:00:14.821Z] [INFO] CycloneDX: Resolving Dependencies
+[2024-06-20T16:00:22.848Z] [INFO] CycloneDX: Creating BOM version 1.5 with 88 component(s)
+[2024-06-20T16:00:22.848Z] [INFO] CycloneDX: Writing and validating BOM (JSON): /var/lib/jenkins/workspace/spring-petclinic/target/classes/META-INF/sbom/application.cdx.json
+[2024-06-20T16:00:22.848Z] [INFO]            attaching as spring-petclinic-3.3.0-SNAPSHOT-cyclonedx.json
+[2024-06-20T16:00:22.848Z] [INFO] 
+[2024-06-20T16:00:22.848Z] [INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[2024-06-20T16:00:22.848Z] [INFO] Copying 3 resources from src/main/resources to target/classes
+[2024-06-20T16:00:22.848Z] [INFO] Copying 43 resources from src/main/resources to target/classes
+[2024-06-20T16:00:22.848Z] [INFO] 
+[2024-06-20T16:00:22.848Z] [INFO] --- compiler:3.13.0:compile (default-compile) @ spring-petclinic ---
+[2024-06-20T16:00:22.848Z] [INFO] Recompiling the module because of changed source code.
+[2024-06-20T16:00:22.849Z] [INFO] Compiling 24 source files with javac [debug parameters release 17] to target/classes
+[2024-06-20T16:00:24.711Z] [INFO] 
+[2024-06-20T16:00:24.711Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[2024-06-20T16:00:24.711Z] [INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/spring-petclinic/src/test/resources
+[2024-06-20T16:00:24.711Z] [INFO] 
+[2024-06-20T16:00:24.711Z] [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ spring-petclinic ---
+[2024-06-20T16:00:24.711Z] [INFO] Recompiling the module because of changed dependency.
+[2024-06-20T16:00:24.711Z] [INFO] Compiling 14 source files with javac [debug parameters release 17] to target/test-classes
+[2024-06-20T16:00:26.574Z] [INFO] 
+[2024-06-20T16:00:26.574Z] [INFO] --- surefire:3.2.5:test (default-test) @ spring-petclinic ---
+[2024-06-20T16:00:26.574Z] [WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[2024-06-20T16:00:26.574Z] [INFO] Tests are skipped.
+[2024-06-20T16:00:26.574Z] [INFO] 
+[2024-06-20T16:00:26.574Z] [INFO] --- jacoco:0.8.12:report (report) @ spring-petclinic ---
+[2024-06-20T16:00:26.574Z] [INFO] Skipping JaCoCo execution due to missing execution data file.
+[2024-06-20T16:00:26.574Z] [INFO] 
+[2024-06-20T16:00:26.574Z] [INFO] --- jar:3.4.1:jar (default-jar) @ spring-petclinic ---
+[2024-06-20T16:00:27.126Z] [INFO] Building jar: /var/lib/jenkins/workspace/spring-petclinic/target/spring-petclinic-3.3.0-SNAPSHOT.jar
+[2024-06-20T16:00:27.126Z] [INFO] 
+[2024-06-20T16:00:27.126Z] [INFO] --- spring-boot:3.3.0:repackage (repackage) @ spring-petclinic ---
+[2024-06-20T16:00:27.677Z] [INFO] Replacing main artifact /var/lib/jenkins/workspace/spring-petclinic/target/spring-petclinic-3.3.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[2024-06-20T16:00:27.677Z] [INFO] The original artifact has been renamed to /var/lib/jenkins/workspace/spring-petclinic/target/spring-petclinic-3.3.0-SNAPSHOT.jar.original
+[2024-06-20T16:00:27.677Z] [INFO] 
+[2024-06-20T16:00:27.677Z] [INFO] --- install:3.1.2:install (default-install) @ spring-petclinic ---
+[2024-06-20T16:00:27.677Z] [INFO] Installing /var/lib/jenkins/workspace/spring-petclinic/pom.xml to /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-SNAPSHOT.pom
+[2024-06-20T16:00:27.677Z] [INFO] Installing /var/lib/jenkins/workspace/spring-petclinic/target/spring-petclinic-3.3.0-SNAPSHOT.jar to /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-SNAPSHOT.jar
+[2024-06-20T16:00:27.677Z] [INFO] Installing /var/lib/jenkins/workspace/spring-petclinic/target/classes/META-INF/sbom/application.cdx.json to /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-SNAPSHOT-cyclonedx.json
+[2024-06-20T16:00:27.677Z] [INFO] 
+[2024-06-20T16:00:27.677Z] [INFO] --- deploy:3.1.2:deploy (default-deploy) @ spring-petclinic ---
+[2024-06-20T16:00:28.228Z] Downloading from snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/maven-metadata.xml
+[2024-06-20T16:00:28.780Z] Progress (1): 0.6/1.0 kBProgress (1): 1.0 kB                        Downloaded from snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/maven-metadata.xml (1.0 kB at 2.0 kB/s)
+[2024-06-20T16:00:28.780Z] Uploading to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17.pom
+[2024-06-20T16:00:29.331Z] Progress (1): 16 kB                   Uploaded to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17.pom (16 kB at 27 kB/s)
+[2024-06-20T16:00:29.331Z] Uploading to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17.jar
+[2024-06-20T16:00:29.331Z] Uploading to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17-cyclonedx.json
+[2024-06-20T16:00:30.090Z] Progress (1): 0/61 MBProgress (1): 0.1/61 MBProgress (1): 0.1/61 MBProgress (2): 0.1/61 MB | 33/229 kBProgress (2): 0.1/61 MB | 33/229 kBProgress (2): 0.2/61 MB | 33/229 kBProgress (2): 0.2/61 MB | 66/229 kBProgress (2): 0.2/61 MB | 98/229 kBProgress (2): 0.2/61 MB | 98/229 kBProgress (2): 0.2/61 MB | 98/229 kBProgress (2): 0.3/61 MB | 98/229 kBProgress (2): 0.3/61 MB | 98/229 kBProgress (2): 0.3/61 MB | 98/229 kBProgress (2): 0.3/61 MB | 131/229 kBProgress (2): 0.3/61 MB | 164/229 kBProgress (2): 0.3/61 MB | 197/229 kBProgress (2): 0.3/61 MB | 229 kB    Progress (2): 0.4/61 MB | 229 kBProgress (2): 0.4/61 MB | 229 kBProgress (2): 0.4/61 MB | 229 kBProgress (2): 0.5/61 MB | 229 kBProgress (2): 0.5/61 MB | 229 kBProgress (2): 0.5/61 MB | 229 kBProgress (2): 0.6/61 MB | 229 kBProgress (2): 0.6/61 MB | 229 kBProgress (2): 0.6/61 MB | 229 kBProgress (2): 0.7/61 MB | 229 kBProgress (2): 0.7/61 MB | 229 kBProgress (2): 0.7/61 MB | 229 kBProgress (2): 0.8/61 MB | 229 kBProgress (2): 0.8/61 MB | 229 kBProgress (2): 0.8/61 MB | 229 kBProgress (2): 0.9/61 MB | 229 kBProgress (2): 0.9/61 MB | 229 kBProgress (2): 0.9/61 MB | 229 kBProgress (2): 1.0/61 MB | 229 kBProgress (2): 1.0/61 MB | 229 kBProgress (2): 1.0/61 MB | 229 kBProgress (2): 1.0/61 MB | 229 kBProgress (2): 1.1/61 MB | 229 kBProgress (2): 1.1/61 MB | 229 kBProgress (2): 1.1/61 MB | 229 kBProgress (2): 1.2/61 MB | 229 kBProgress (2): 1.2/61 MB | 229 kBProgress (2): 1.2/61 MB | 229 kBProgress (2): 1.3/61 MB | 229 kBProgress (2): 1.3/61 MB | 229 kBProgress (2): 1.3/61 MB | 229 kBProgress (2): 1.4/61 MB | 229 kBProgress (2): 1.4/61 MB | 229 kBProgress (2): 1.4/61 MB | 229 kBProgress (2): 1.5/61 MB | 229 kBProgress (2): 1.5/61 MB | 229 kBProgress (2): 1.5/61 MB | 229 kBProgress (2): 1.6/61 MB | 229 kBProgress (2): 1.6/61 MB | 229 kBProgress (2): 1.6/61 MB | 229 kBProgress (2): 1.7/61 MB | 229 kBProgress (2): 1.7/61 MB | 229 kBProgress (2): 1.7/61 MB | 229 kBProgress (2): 1.8/61 MB | 229 kBProgress (2): 1.8/61 MB | 229 kBProgress (2): 1.8/61 MB | 229 kBProgress (2): 1.9/61 MB | 229 kBProgress (2): 1.9/61 MB | 229 kBProgress (2): 1.9/61 MB | 229 kBProgress (2): 2.0/61 MB | 229 kBProgress (2): 2.0/61 MB | 229 kBProgress (2): 2.0/61 MB | 229 kBProgress (2): 2.1/61 MB | 229 kBProgress (2): 2.1/61 MB | 229 kBProgress (2): 2.1/61 MB | 229 kBProgress (2): 2.2/61 MB | 229 kBProgress (2): 2.2/61 MB | 229 kBProgress (2): 2.2/61 MB | 229 kBProgress (2): 2.3/61 MB | 229 kBProgress (2): 2.3/61 MB | 229 kBProgress (2): 2.3/61 MB | 229 kBProgress (2): 2.4/61 MB | 229 kBProgress (2): 2.4/61 MB | 229 kBProgress (2): 2.4/61 MB | 229 kBProgress (2): 2.5/61 MB | 229 kBProgress (2): 2.5/61 MB | 229 kBProgress (2): 2.5/61 MB | 229 kBProgress (2): 2.6/61 MB | 229 kBProgress (2): 2.6/61 MB | 229 kBProgress (2): 2.6/61 MB | 229 kBProgress (2): 2.7/61 MB | 229 kBProgress (2): 2.7/61 MB | 229 kBProgress (2): 2.7/61 MB | 229 kBProgress (2): 2.8/61 MB | 229 kBProgress (2): 2.8/61 MB | 229 kBProgress (2): 2.8/61 MB | 229 kBProgress (2): 2.9/61 MB | 229 kBProgress (2): 2.9/61 MB | 229 kBProgress (2): 2.9/61 MB | 229 kBProgress (2): 2.9/61 MB | 229 kBProgress (2): 3.0/61 MB | 229 kBProgress (2): 3.0/61 MB | 229 kBProgress (2): 3.0/61 MB | 229 kBProgress (2): 3.1/61 MB | 229 kBProgress (2): 3.1/61 MB | 229 kBProgress (2): 3.1/61 MB | 229 kBProgress (2): 3.2/61 MB | 229 kBProgress (2): 3.2/61 MB | 229 kBProgress (2): 3.2/61 MB | 229 kBProgress (2): 3.3/61 MB | 229 kBProgress (2): 3.3/61 MB | 229 kBProgress (2): 3.3/61 MB | 229 kBProgress (2): 3.4/61 MB | 229 kBProgress (2): 3.4/61 MB | 229 kBProgress (2): 3.4/61 MB | 229 kBProgress (2): 3.5/61 MB | 229 kBProgress (2): 3.5/61 MB | 229 kBProgress (2): 3.5/61 MB | 229 kBProgress (2): 3.6/61 MB | 229 kBProgress (2): 3.6/61 MB | 229 kBProgress (2): 3.6/61 MB | 229 kBProgress (2): 3.7/61 MB | 229 kBProgress (2): 3.7/61 MB | 229 kBProgress (2): 3.7/61 MB | 229 kBProgress (2): 3.8/61 MB | 229 kBProgress (2): 3.8/61 MB | 229 kBProgress (2): 3.8/61 MB | 229 kBProgress (2): 3.9/61 MB | 229 kBProgress (2): 3.9/61 MB | 229 kBProgress (2): 3.9/61 MB | 229 kBProgress (2): 4.0/61 MB | 229 kBProgress (2): 4.0/61 MB | 229 kBProgress (2): 4.0/61 MB | 229 kBProgress (2): 4.1/61 MB | 229 kBProgress (2): 4.1/61 MB | 229 kBProgress (2): 4.1/61 MB | 229 kBProgress (2): 4.2/61 MB | 229 kBProgress (2): 4.2/61 MB | 229 kBProgress (2): 4.2/61 MB | 229 kBProgress (2): 4.3/61 MB | 229 kBProgress (2): 4.3/61 MB | 229 kBProgress (2): 4.3/61 MB | 229 kBProgress (2): 4.4/61 MB | 229 kBProgress (2): 4.4/61 MB | 229 kBProgress (2): 4.4/61 MB | 229 kBProgress (2): 4.5/61 MB | 229 kBProgress (2): 4.5/61 MB | 229 kBProgress (2): 4.5/61 MB | 229 kBProgress (2): 4.6/61 MB | 229 kBProgress (2): 4.6/61 MB | 229 kBProgress (2): 4.6/61 MB | 229 kBProgress (2): 4.7/61 MB | 229 kBProgress (2): 4.7/61 MB | 229 kBProgress (2): 4.7/61 MB | 229 kBProgress (2): 4.8/61 MB | 229 kBProgress (2): 4.8/61 MB | 229 kBProgress (2): 4.8/61 MB | 229 kBProgress (2): 4.8/61 MB | 229 kBProgress (2): 4.9/61 MB | 229 kBProgress (2): 4.9/61 MB | 229 kBProgress (2): 4.9/61 MB | 229 kBProgress (2): 5.0/61 MB | 229 kBProgress (2): 5.0/61 MB | 229 kBProgress (2): 5.0/61 MB | 229 kBProgress (2): 5.1/61 MB | 229 kBProgress (2): 5.1/61 MB | 229 kBProgress (2): 5.1/61 MB | 229 kBProgress (2): 5.2/61 MB | 229 kBProgress (2): 5.2/61 MB | 229 kBProgress (2): 5.2/61 MB | 229 kBProgress (2): 5.3/61 MB | 229 kBProgress (2): 5.3/61 MB | 229 kBProgress (2): 5.3/61 MB | 229 kBProgress (2): 5.4/61 MB | 229 kBProgress (2): 5.4/61 MB | 229 kBProgress (2): 5.4/61 MB | 229 kBProgress (2): 5.5/61 MB | 229 kBProgress (2): 5.5/61 MB | 229 kBProgress (2): 5.5/61 MB | 229 kBProgress (2): 5.6/61 MB | 229 kBProgress (2): 5.6/61 MB | 229 kBProgress (2): 5.6/61 MB | 229 kBProgress (2): 5.7/61 MB | 229 kBProgress (2): 5.7/61 MB | 229 kBProgress (2): 5.7/61 MB | 229 kBProgress (2): 5.8/61 MB | 229 kBProgress (2): 5.8/61 MB | 229 kBProgress (2): 5.8/61 MB | 229 kBProgress (2): 5.9/61 MB | 229 kBProgress (2): 5.9/61 MB | 229 kBProgress (2): 5.9/61 MB | 229 kBProgress (2): 6.0/61 MB | 229 kBProgress (2): 6.0/61 MB | 229 kBProgress (2): 6.0/61 MB | 229 kBProgress (2): 6.1/61 MB | 229 kBProgress (2): 6.1/61 MB | 229 kBProgress (2): 6.1/61 MB | 229 kBProgress (2): 6.2/61 MB | 229 kBProgress (2): 6.2/61 MB | 229 kBProgress (2): 6.2/61 MB | 229 kBProgress (2): 6.3/61 MB | 229 kBProgress (2): 6.3/61 MB | 229 kBProgress (2): 6.3/61 MB | 229 kBProgress (2): 6.4/61 MB | 229 kBProgress (2): 6.4/61 MB | 229 kBProgress (2): 6.4/61 MB | 229 kBProgress (2): 6.5/61 MB | 229 kBProgress (2): 6.5/61 MB | 229 kBProgress (2): 6.5/61 MB | 229 kBProgress (2): 6.6/61 MB | 229 kBProgress (2): 6.6/61 MB | 229 kBProgress (2): 6.6/61 MB | 229 kBProgress (2): 6.7/61 MB | 229 kBProgress (2): 6.7/61 MB | 229 kBProgress (2): 6.7/61 MB | 229 kBProgress (2): 6.8/61 MB | 229 kBProgress (2): 6.8/61 MB | 229 kBProgress (2): 6.8/61 MB | 229 kBProgress (2): 6.8/61 MB | 229 kBProgress (2): 6.9/61 MB | 229 kBProgress (2): 6.9/61 MB | 229 kBProgress (2): 6.9/61 MB | 229 kBProgress (2): 7.0/61 MB | 229 kBProgress (2): 7.0/61 MB | 229 kBProgress (2): 7.0/61 MB | 229 kBProgress (2): 7.1/61 MB | 229 kBProgress (2): 7.1/61 MB | 229 kBProgress (2): 7.1/61 MB | 229 kBProgress (2): 7.2/61 MB | 229 kBProgress (2): 7.2/61 MB | 229 kBProgress (2): 7.2/61 MB | 229 kBProgress (2): 7.3/61 MB | 229 kBProgress (2): 7.3/61 MB | 229 kBProgress (2): 7.3/61 MB | 229 kBProgress (2): 7.4/61 MB | 229 kBProgress (2): 7.4/61 MB | 229 kBProgress (2): 7.4/61 MB | 229 kBProgress (2): 7.5/61 MB | 229 kBProgress (2): 7.5/61 MB | 229 kBProgress (2): 7.5/61 MB | 229 kBProgress (2): 7.6/61 MB | 229 kBProgress (2): 7.6/61 MB | 229 kBProgress (2): 7.6/61 MB | 229 kBProgress (2): 7.7/61 MB | 229 kBProgress (2): 7.7/61 MB | 229 kBProgress (2): 7.7/61 MB | 229 kBProgress (2): 7.8/61 MB | 229 kBProgress (2): 7.8/61 MB | 229 kBProgress (2): 7.8/61 MB | 229 kBProgress (2): 7.9/61 MB | 229 kBProgress (2): 7.9/61 MB | 229 kBProgress (2): 7.9/61 MB | 229 kBProgress (2): 8.0/61 MB | 229 kBProgress (2): 8.0/61 MB | 229 kBProgress (2): 8.0/61 MB | 229 kBProgress (2): 8.1/61 MB | 229 kBProgress (2): 8.1/61 MB | 229 kBProgress (2): 8.1/61 MB | 229 kBProgress (2): 8.2/61 MB | 229 kBProgress (2): 8.2/61 MB | 229 kBProgress (2): 8.2/61 MB | 229 kBProgress (2): 8.3/61 MB | 229 kBProgress (2): 8.3/61 MB | 229 kBProgress (2): 8.3/61 MB | 229 kBProgress (2): 8.4/61 MB | 229 kBProgress (2): 8.4/61 MB | 229 kBProgress (2): 8.4/61 MB | 229 kBProgress (2): 8.5/61 MB | 229 kBProgress (2): 8.5/61 MB | 229 kBProgress (2): 8.5/61 MB | 229 kBProgress (2): 8.6/61 MB | 229 kBProgress (2): 8.6/61 MB | 229 kBProgress (2): 8.6/61 MB | 229 kBProgress (2): 8.7/61 MB | 229 kBProgress (2): 8.7/61 MB | 229 kBProgress (2): 8.7/61 MB | 229 kBProgress (2): 8.7/61 MB | 229 kBProgress (2): 8.8/61 MB | 229 kBProgress (2): 8.8/61 MB | 229 kBProgress (2): 8.8/61 MB | 229 kBProgress (2): 8.9/61 MB | 229 kBProgress (2): 8.9/61 MB | 229 kBProgress (2): 8.9/61 MB | 229 kBProgress (2): 9.0/61 MB | 229 kBProgress (2): 9.0/61 MB | 229 kBProgress (2): 9.0/61 MB | 229 kBProgress (2): 9.1/61 MB | 229 kBProgress (2): 9.1/61 MB | 229 kBProgress (2): 9.1/61 MB | 229 kBProgress (2): 9.2/61 MB | 229 kBProgress (2): 9.2/61 MB | 229 kBProgress (2): 9.2/61 MB | 229 kBProgress (2): 9.3/61 MB | 229 kBProgress (2): 9.3/61 MB | 229 kBProgress (2): 9.3/61 MB | 229 kBProgress (2): 9.4/61 MB | 229 kBProgress (2): 9.4/61 MB | 229 kBProgress (2): 9.4/61 MB | 229 kBProgress (2): 9.5/61 MB | 229 kBProgress (2): 9.5/61 MB | 229 kBProgress (2): 9.5/61 MB | 229 kBProgress (2): 9.6/61 MB | 229 kBProgress (2): 9.6/61 MB | 229 kBProgress (2): 9.6/61 MB | 229 kBProgress (2): 9.7/61 MB | 229 kBProgress (2): 9.7/61 MB | 229 kBProgress (2): 9.7/61 MB | 229 kBProgress (2): 9.8/61 MB | 229 kBProgress (2): 9.8/61 MB | 229 kBProgress (2): 9.8/61 MB | 229 kBProgress (2): 9.9/61 MB | 229 kBProgress (2): 9.9/61 MB | 229 kBProgress (2): 9.9/61 MB | 229 kBProgress (2): 10.0/61 MB | 229 kBProgress (2): 10.0/61 MB | 229 kBProgress (2): 10/61 MB | 229 kB  Progress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 10/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 11/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 12/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 13/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 14/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 15/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 16/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 17/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 18/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 19/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kBProgress (2): 20/61 MB | 229 kB                               Uploaded to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17-cyclonedx.json (229 kB at 302 kB/s)
+[2024-06-20T16:00:31.938Z] Progress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 20/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 21/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 22/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 23/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 24/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 25/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 26/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 27/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 28/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 29/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 30/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 31/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 32/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 33/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 34/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 35/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 36/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 37/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 38/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 39/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 40/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 41/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 42/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 43/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 44/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 45/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 46/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 47/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 48/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 49/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 50/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 51/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 52/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 53/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 54/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 55/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 56/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 57/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 58/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 59/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 60/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61/61 MBProgress (1): 61 MB                      Uploaded to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/spring-petclinic-3.3.0-20240620.160005-17.jar (61 MB at 22 MB/s)
+[2024-06-20T16:00:31.938Z] Downloading from snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/maven-metadata.xml
+[2024-06-20T16:00:32.189Z] Progress (1): 396 B                   Downloaded from snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/maven-metadata.xml (396 B at 5.8 kB/s)
+[2024-06-20T16:00:32.189Z] Uploading to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/maven-metadata.xml
+[2024-06-20T16:00:32.189Z] Progress (1): 1.0 kB                    Uploaded to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/3.3.0-SNAPSHOT/maven-metadata.xml (1.0 kB at 6.9 kB/s)
+[2024-06-20T16:00:32.189Z] Uploading to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/maven-metadata.xml
+[2024-06-20T16:00:32.440Z] Progress (1): 339 B                   Uploaded to snapshots: https://bnr.jfrog.io/artifactory/devops-libs-snapshot/org/springframework/samples/spring-petclinic/maven-metadata.xml (339 B at 1.2 kB/s)
+[2024-06-20T16:00:32.440Z] [INFO] ------------------------------------------------------------------------
+[2024-06-20T16:00:32.440Z] [INFO] BUILD SUCCESS
+[2024-06-20T16:00:32.440Z] [INFO] ------------------------------------------------------------------------
+[2024-06-20T16:00:32.440Z] [INFO] Total time:  26.688 s
+[2024-06-20T16:00:32.440Z] [INFO] Finished at: 2024-06-20T16:00:32Z
+[2024-06-20T16:00:32.440Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
+[2024-06-20T16:00:33.283Z] + mvn -s /var/lib/jenkins/settings.xml test
+[2024-06-20T16:00:35.145Z] [INFO] Scanning for projects...
+[2024-06-20T16:00:35.696Z] [INFO] 
+[2024-06-20T16:00:35.696Z] [INFO] ------------< org.springframework.samples:spring-petclinic >------------
+[2024-06-20T16:00:35.696Z] [INFO] Building petclinic 3.3.0-SNAPSHOT
+[2024-06-20T16:00:35.696Z] [INFO]   from pom.xml
+[2024-06-20T16:00:35.696Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2024-06-20T16:00:36.616Z] [INFO] 
+[2024-06-20T16:00:36.616Z] [INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
+[2024-06-20T16:00:36.867Z] [INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[2024-06-20T16:00:36.867Z] [INFO] 
+[2024-06-20T16:00:36.867Z] [INFO] --- spring-javaformat:0.0.41:validate (default) @ spring-petclinic ---
+[2024-06-20T16:00:37.779Z] [INFO] 
+[2024-06-20T16:00:37.779Z] [INFO] --- checkstyle:3.3.1:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[2024-06-20T16:00:38.690Z] [INFO] You have 0 Checkstyle violations.
+[2024-06-20T16:00:38.690Z] [INFO] 
+[2024-06-20T16:00:38.690Z] [INFO] --- jacoco:0.8.12:prepare-agent (default) @ spring-petclinic ---
+[2024-06-20T16:00:38.941Z] [INFO] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.12/org.jacoco.agent-0.8.12-runtime.jar=destfile=/var/lib/jenkins/workspace/spring-petclinic/target/jacoco.exec
+[2024-06-20T16:00:38.941Z] [INFO] 
+[2024-06-20T16:00:38.941Z] [INFO] --- git-commit-id:8.0.2:revision (default) @ spring-petclinic ---
+[2024-06-20T16:00:38.941Z] [INFO] dotGitDirectory '/var/lib/jenkins/workspace/spring-petclinic/.git'
+[2024-06-20T16:00:39.192Z] [INFO] Collected git.build.user.name with value 
+[2024-06-20T16:00:39.192Z] [INFO] Collected git.build.user.email with value 
+[2024-06-20T16:00:39.442Z] [INFO] Using environment variable based branch name. GIT_BRANCH = null
+[2024-06-20T16:00:39.442Z] [INFO] Detected that running on CI environment, but using repository branch, no GIT_BRANCH detected.
+[2024-06-20T16:00:39.442Z] [INFO] Collected git.branch with value main
+[2024-06-20T16:00:39.442Z] [INFO] Collected git.commit.id.describe with value ddfb9bf
+[2024-06-20T16:00:39.442Z] [INFO] Collected git.commit.id.describe-short with value ddfb9bf
+[2024-06-20T16:00:39.442Z] [INFO] Collected git.commit.id with value ddfb9bf92ab9a66e8303e1ed9fb28f841516caa2
+[2024-06-20T16:00:39.442Z] [INFO] Collected git.commit.id.abbrev with value ddfb9bf
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.dirty with value false
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.user.name with value Bandaru, Srikant
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.user.email with value srikant.bandaru@ihg.com
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.message.full with value initial commit
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.message.short with value initial commit
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.author.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.commit.committer.time with value 2024-06-20T15:57:51Z
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.remote.origin.url with value https://github.com/sribnr/spring-petclinic.git
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.tags with value 
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.tag with value 
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.closest.tag.name with value 
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.closest.tag.commit.count with value 
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.total.commit.count with value 1
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.local.branch.ahead with value NO_REMOTE
+[2024-06-20T16:00:39.443Z] [INFO] Collected git.local.branch.behind with value NO_REMOTE
+[2024-06-20T16:00:39.695Z] [INFO] Collected git.build.time with value 2023-05-10T07:42:50Z
+[2024-06-20T16:00:39.695Z] [INFO] Collected git.build.version with value 3.3.0-SNAPSHOT
+[2024-06-20T16:00:39.695Z] [INFO] Collected git.build.host with value ip-172-31-17-165.us-east-2.compute.internal
+[2024-06-20T16:00:39.695Z] [INFO] Collected git.build.number with value 18
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.tags' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.version' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.branch' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.host' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.number' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.id' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.user.email' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.local.branch.behind' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.author.time' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.user.name' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.dirty' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.closest.tag.commit.count' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.user.name' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.id.abbrev' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.id.describe-short' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.total.commit.count' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.id.describe' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.user.email' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.message.short' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.committer.time' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.tag' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.closest.tag.name' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.local.branch.ahead' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.time' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.build.time' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.commit.message.full' in results
+[2024-06-20T16:00:39.695Z] [INFO] including property 'git.remote.origin.url' in results
+[2024-06-20T16:00:39.695Z] [INFO] Reading existing properties file [/var/lib/jenkins/workspace/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[2024-06-20T16:00:39.695Z] [INFO] Properties file [/var/lib/jenkins/workspace/spring-petclinic/target/classes/git.properties] is up-to-date (for module petclinic)...
+[2024-06-20T16:00:39.695Z] [INFO] 
+[2024-06-20T16:00:39.695Z] [INFO] --- spring-boot:3.3.0:build-info (default) @ spring-petclinic ---
+[2024-06-20T16:00:39.695Z] [INFO] 
+[2024-06-20T16:00:39.695Z] [INFO] --- cyclonedx:2.8.0:makeAggregateBom (default) @ spring-petclinic ---
+[2024-06-20T16:00:39.946Z] [INFO] CycloneDX: Resolving Dependencies
+[2024-06-20T16:00:46.429Z] [INFO] CycloneDX: Creating BOM version 1.5 with 88 component(s)
+[2024-06-20T16:00:46.679Z] [INFO] CycloneDX: Writing and validating BOM (JSON): /var/lib/jenkins/workspace/spring-petclinic/target/classes/META-INF/sbom/application.cdx.json
+[2024-06-20T16:00:46.930Z] [INFO]            attaching as spring-petclinic-3.3.0-SNAPSHOT-cyclonedx.json
+[2024-06-20T16:00:46.930Z] [INFO] 
+[2024-06-20T16:00:46.930Z] [INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[2024-06-20T16:00:47.180Z] [INFO] Copying 3 resources from src/main/resources to target/classes
+[2024-06-20T16:00:47.181Z] [INFO] Copying 43 resources from src/main/resources to target/classes
+[2024-06-20T16:00:47.181Z] [INFO] 
+[2024-06-20T16:00:47.181Z] [INFO] --- compiler:3.13.0:compile (default-compile) @ spring-petclinic ---
+[2024-06-20T16:00:47.181Z] [INFO] Nothing to compile - all classes are up to date.
+[2024-06-20T16:00:47.181Z] [INFO] 
+[2024-06-20T16:00:47.181Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[2024-06-20T16:00:47.431Z] [INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/spring-petclinic/src/test/resources
+[2024-06-20T16:00:47.431Z] [INFO] 
+[2024-06-20T16:00:47.431Z] [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ spring-petclinic ---
+[2024-06-20T16:00:47.431Z] [INFO] Nothing to compile - all classes are up to date.
+[2024-06-20T16:00:47.431Z] [INFO] 
+[2024-06-20T16:00:47.431Z] [INFO] --- surefire:3.2.5:test (default-test) @ spring-petclinic ---
+[2024-06-20T16:00:47.431Z] [WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[2024-06-20T16:00:47.431Z] [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[2024-06-20T16:00:47.682Z] [INFO] 
+[2024-06-20T16:00:47.682Z] [INFO] -------------------------------------------------------
+[2024-06-20T16:00:47.682Z] [INFO]  T E S T S
+[2024-06-20T16:00:47.682Z] [INFO] -------------------------------------------------------
+[2024-06-20T16:00:50.917Z] 16:00:50.396 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+[2024-06-20T16:00:51.167Z] 16:00:51.078 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+[2024-06-20T16:00:51.168Z] 16:00:51.083 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+[2024-06-20T16:00:51.418Z] 16:00:51.139 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+[2024-06-20T16:00:51.418Z]   Server Version: 25.0.3
+[2024-06-20T16:00:51.418Z]   API Version: 1.44
+[2024-06-20T16:00:51.418Z]   Operating System: Amazon Linux 2023.4.20240611
+[2024-06-20T16:00:51.418Z]   Total Memory: 3904 MB
+[2024-06-20T16:00:51.418Z] 16:00:51.171 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+[2024-06-20T16:00:51.418Z] 16:00:51.177 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+[2024-06-20T16:00:51.418Z] 16:00:51.216 [main] INFO tc.testcontainers/ryuk:0.7.0 -- Creating container for image: testcontainers/ryuk:0.7.0
+[2024-06-20T16:00:51.669Z] 16:00:51.497 [main] INFO tc.testcontainers/ryuk:0.7.0 -- Container testcontainers/ryuk:0.7.0 is starting: 98ab8d0f72dfa1fe25c9d7ad4f30495618c5133da4d2bb5596a50234e82945fa
+[2024-06-20T16:00:52.582Z] 16:00:52.555 [main] INFO tc.testcontainers/ryuk:0.7.0 -- Container testcontainers/ryuk:0.7.0 started in PT1.338859828S
+[2024-06-20T16:00:52.582Z] 16:00:52.564 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+[2024-06-20T16:00:52.582Z] 16:00:52.565 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+[2024-06-20T16:00:52.582Z] 16:00:52.566 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+[2024-06-20T16:00:52.832Z] [INFO] Running org.springframework.samples.petclinic.MySqlIntegrationTests
+[2024-06-20T16:00:52.832Z] 16:00:52.811 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.springframework.samples.petclinic.MySqlIntegrationTests]: MySqlIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:00:53.383Z] 16:00:53.124 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.MySqlIntegrationTests
+[2024-06-20T16:00:53.634Z] 16:00:53.363 [main] INFO tc.mysql:8.4 -- Creating container for image: mysql:8.4
+[2024-06-20T16:00:53.634Z] 16:00:53.501 [main] INFO tc.mysql:8.4 -- Container mysql:8.4 is starting: e6f870ad0b79ee60f7487a6f0ee692b20e5c789fc49ef7d221db5f68c024dff8
+[2024-06-20T16:00:54.185Z] 16:00:53.991 [main] INFO tc.mysql:8.4 -- Waiting for database connection to become available at jdbc:mysql://localhost:32769/test using query 'SELECT 1'
+[2024-06-20T16:01:12.148Z] 16:01:11.837 [main] INFO tc.mysql:8.4 -- Container mysql:8.4 started in PT18.474489726S
+[2024-06-20T16:01:12.149Z] 16:01:11.838 [main] INFO tc.mysql:8.4 -- Container is started (JDBC URL: jdbc:mysql://localhost:32769/test)
+[2024-06-20T16:01:12.149Z] 16:01:11.950 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+[2024-06-20T16:01:12.700Z] 
+[2024-06-20T16:01:12.700Z] 
+[2024-06-20T16:01:12.700Z]               |\      _,,,--,,_
+[2024-06-20T16:01:12.700Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:12.700Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:12.700Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:12.700Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:12.700Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:12.700Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:12.700Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:12.700Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:12.700Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:12.700Z] 
+[2024-06-20T16:01:12.700Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:12.700Z] 
+[2024-06-20T16:01:12.700Z] 
+[2024-06-20T16:01:12.950Z] 2024-06-20T16:01:12.728Z  INFO 2887 --- [           main] o.s.s.petclinic.MySqlIntegrationTests    : Starting MySqlIntegrationTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:12.950Z] 2024-06-20T16:01:12.731Z  INFO 2887 --- [           main] o.s.s.petclinic.MySqlIntegrationTests    : The following 1 profile is active: "mysql"
+[2024-06-20T16:01:15.434Z] 2024-06-20T16:01:15.213Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-06-20T16:01:15.434Z] 2024-06-20T16:01:15.317Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 2 JPA repository interfaces.
+[2024-06-20T16:01:17.920Z] 2024-06-20T16:01:17.347Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+[2024-06-20T16:01:17.920Z] 2024-06-20T16:01:17.372Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2024-06-20T16:01:17.920Z] 2024-06-20T16:01:17.373Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+[2024-06-20T16:01:17.920Z] 2024-06-20T16:01:17.495Z  INFO 2887 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+[2024-06-20T16:01:17.920Z] 2024-06-20T16:01:17.497Z  INFO 2887 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4627 ms
+[2024-06-20T16:01:18.471Z] 2024-06-20T16:01:18.095Z  INFO 2887 --- [           main] tc.mysql:8.4                             : Creating container for image: mysql:8.4
+[2024-06-20T16:01:18.472Z] 2024-06-20T16:01:18.170Z  INFO 2887 --- [           main] tc.mysql:8.4                             : Container mysql:8.4 is starting: 752ae3bbd03a9f70a134b05c3c8f02d4ee6b6eaeda2aacf16c6a8af0c96f9981
+[2024-06-20T16:01:18.722Z] 2024-06-20T16:01:18.594Z  INFO 2887 --- [           main] tc.mysql:8.4                             : Waiting for database connection to become available at jdbc:mysql://localhost:32770/test using query 'SELECT 1'
+[2024-06-20T16:01:36.688Z] 2024-06-20T16:01:35.052Z  INFO 2887 --- [           main] tc.mysql:8.4                             : Container mysql:8.4 started in PT16.957373622S
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:35.052Z  INFO 2887 --- [           main] tc.mysql:8.4                             : Container is started (JDBC URL: jdbc:mysql://localhost:32770/test)
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:35.195Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:35.470Z  INFO 2887 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c018b33
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:35.473Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:36.328Z  INFO 2887 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:36.436Z  INFO 2887 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-06-20T16:01:36.689Z] 2024-06-20T16:01:36.498Z  INFO 2887 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+[2024-06-20T16:01:37.240Z] 2024-06-20T16:01:37.073Z  INFO 2887 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-06-20T16:01:39.723Z] 2024-06-20T16:01:39.473Z  INFO 2887 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-06-20T16:01:39.723Z] 2024-06-20T16:01:39.477Z  INFO 2887 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-20T16:01:40.274Z] 2024-06-20T16:01:40.023Z  INFO 2887 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+[2024-06-20T16:01:43.504Z] 2024-06-20T16:01:42.961Z  INFO 2887 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+[2024-06-20T16:01:43.504Z] 2024-06-20T16:01:43.276Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 42381 (http) with context path '/'
+[2024-06-20T16:01:43.504Z] 2024-06-20T16:01:43.319Z  INFO 2887 --- [           main] o.s.s.petclinic.MySqlIntegrationTests    : Started MySqlIntegrationTests in 31.397 seconds (process running for 55.698)
+[2024-06-20T16:01:44.055Z] OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[2024-06-20T16:01:44.968Z] 2024-06-20T16:01:44.769Z  INFO 2887 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-06-20T16:01:44.968Z] 2024-06-20T16:01:44.770Z  INFO 2887 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2024-06-20T16:01:44.968Z] 2024-06-20T16:01:44.772Z  INFO 2887 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+[2024-06-20T16:01:46.831Z] [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 53.88 s -- in org.springframework.samples.petclinic.MySqlIntegrationTests
+[2024-06-20T16:01:46.831Z] [INFO] Running org.springframework.samples.petclinic.PetClinicIntegrationTests
+[2024-06-20T16:01:46.831Z] 2024-06-20T16:01:46.506Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.PetClinicIntegrationTests]: PetClinicIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:46.831Z] 2024-06-20T16:01:46.529Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.PetClinicIntegrationTests
+[2024-06-20T16:01:46.831Z] 2024-06-20T16:01:46.548Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:46.831Z] 
+[2024-06-20T16:01:46.831Z] 
+[2024-06-20T16:01:46.831Z]               |\      _,,,--,,_
+[2024-06-20T16:01:46.831Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:46.831Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:46.831Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:46.831Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:46.831Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:46.831Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:46.831Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:46.831Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:46.831Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:46.831Z] 
+[2024-06-20T16:01:46.831Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:46.831Z] 
+[2024-06-20T16:01:46.831Z] 
+[2024-06-20T16:01:46.831Z] 2024-06-20T16:01:46.606Z  INFO 2887 --- [           main] o.s.s.p.PetClinicIntegrationTests        : Starting PetClinicIntegrationTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:46.832Z] 2024-06-20T16:01:46.609Z  INFO 2887 --- [           main] o.s.s.p.PetClinicIntegrationTests        : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:47.383Z] 2024-06-20T16:01:47.161Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-06-20T16:01:47.385Z] 2024-06-20T16:01:47.175Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+[2024-06-20T16:01:47.635Z] 2024-06-20T16:01:47.439Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+[2024-06-20T16:01:47.635Z] 2024-06-20T16:01:47.440Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2024-06-20T16:01:47.635Z] 2024-06-20T16:01:47.440Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+[2024-06-20T16:01:47.635Z] 2024-06-20T16:01:47.463Z  INFO 2887 --- [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+[2024-06-20T16:01:47.635Z] 2024-06-20T16:01:47.463Z  INFO 2887 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 839 ms
+[2024-06-20T16:01:47.886Z] 2024-06-20T16:01:47.653Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+[2024-06-20T16:01:48.437Z] 2024-06-20T16:01:48.119Z  INFO 2887 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn0: url=jdbc:h2:mem:150e4e1b-a85a-47f0-8255-c7d849704b8b user=SA
+[2024-06-20T16:01:48.437Z] 2024-06-20T16:01:48.119Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+[2024-06-20T16:01:48.437Z] 2024-06-20T16:01:48.295Z  INFO 2887 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-06-20T16:01:48.437Z] 2024-06-20T16:01:48.299Z  INFO 2887 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+[2024-06-20T16:01:48.437Z] 2024-06-20T16:01:48.328Z  INFO 2887 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-06-20T16:01:48.988Z] 2024-06-20T16:01:48.675Z  INFO 2887 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-06-20T16:01:48.988Z] 2024-06-20T16:01:48.675Z  INFO 2887 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-20T16:01:49.902Z] 2024-06-20T16:01:49.609Z  INFO 2887 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoints beneath base path '/actuator'
+[2024-06-20T16:01:49.902Z] 2024-06-20T16:01:49.654Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 40707 (http) with context path '/'
+[2024-06-20T16:01:49.902Z] 2024-06-20T16:01:49.662Z  INFO 2887 --- [           main] o.s.s.p.PetClinicIntegrationTests        : Started PetClinicIntegrationTests in 3.114 seconds (process running for 62.041)
+[2024-06-20T16:01:49.903Z] 2024-06-20T16:01:49.752Z  INFO 2887 --- [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-06-20T16:01:49.903Z] 2024-06-20T16:01:49.753Z  INFO 2887 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2024-06-20T16:01:49.903Z] 2024-06-20T16:01:49.754Z  INFO 2887 --- [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+[2024-06-20T16:01:50.153Z] [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.402 s -- in org.springframework.samples.petclinic.PetClinicIntegrationTests
+[2024-06-20T16:01:50.153Z] [INFO] Running org.springframework.samples.petclinic.model.ValidatorTests
+[2024-06-20T16:01:50.153Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in org.springframework.samples.petclinic.model.ValidatorTests
+[2024-06-20T16:01:50.153Z] [INFO] Running org.springframework.samples.petclinic.owner.OwnerControllerTests
+[2024-06-20T16:01:50.153Z] 2024-06-20T16:01:50.008Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.OwnerControllerTests]: OwnerControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:50.153Z] 2024-06-20T16:01:50.061Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.OwnerControllerTests
+[2024-06-20T16:01:50.153Z] 2024-06-20T16:01:50.081Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:50.404Z] 
+[2024-06-20T16:01:50.404Z] 
+[2024-06-20T16:01:50.404Z]               |\      _,,,--,,_
+[2024-06-20T16:01:50.404Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:50.404Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:50.404Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:50.404Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:50.404Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:50.404Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:50.404Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:50.404Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:50.404Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:50.404Z] 
+[2024-06-20T16:01:50.404Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:50.404Z] 
+[2024-06-20T16:01:50.404Z] 
+[2024-06-20T16:01:50.404Z] 2024-06-20T16:01:50.114Z  INFO 2887 --- [           main] o.s.s.p.owner.OwnerControllerTests       : Starting OwnerControllerTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:50.404Z] 2024-06-20T16:01:50.114Z  INFO 2887 --- [           main] o.s.s.p.owner.OwnerControllerTests       : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:51.748Z] 2024-06-20T16:01:51.356Z  INFO 2887 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+[2024-06-20T16:01:51.748Z] 2024-06-20T16:01:51.357Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+[2024-06-20T16:01:51.748Z] 2024-06-20T16:01:51.364Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[2024-06-20T16:01:51.748Z] 2024-06-20T16:01:51.415Z  INFO 2887 --- [           main] o.s.s.p.owner.OwnerControllerTests       : Started OwnerControllerTests in 1.335 seconds (process running for 63.794)
+[2024-06-20T16:01:53.092Z] [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.736 s -- in org.springframework.samples.petclinic.owner.OwnerControllerTests
+[2024-06-20T16:01:53.092Z] [INFO] Running org.springframework.samples.petclinic.owner.PetControllerTests
+[2024-06-20T16:01:53.092Z] 2024-06-20T16:01:52.792Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.PetControllerTests]: PetControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:53.092Z] 2024-06-20T16:01:52.844Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.PetControllerTests
+[2024-06-20T16:01:53.092Z] 2024-06-20T16:01:52.868Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:53.092Z] 
+[2024-06-20T16:01:53.092Z] 
+[2024-06-20T16:01:53.092Z]               |\      _,,,--,,_
+[2024-06-20T16:01:53.092Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:53.092Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:53.092Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:53.092Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:53.092Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:53.092Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:53.092Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:53.092Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:53.092Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:53.092Z] 
+[2024-06-20T16:01:53.092Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:53.092Z] 
+[2024-06-20T16:01:53.092Z] 
+[2024-06-20T16:01:53.092Z] 2024-06-20T16:01:52.972Z  INFO 2887 --- [           main] o.s.s.p.owner.PetControllerTests         : Starting PetControllerTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:53.092Z] 2024-06-20T16:01:52.974Z  INFO 2887 --- [           main] o.s.s.p.owner.PetControllerTests         : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:54.003Z] 2024-06-20T16:01:53.667Z  INFO 2887 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+[2024-06-20T16:01:54.003Z] 2024-06-20T16:01:53.667Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+[2024-06-20T16:01:54.003Z] 2024-06-20T16:01:53.668Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[2024-06-20T16:01:54.003Z] 2024-06-20T16:01:53.684Z  INFO 2887 --- [           main] o.s.s.p.owner.PetControllerTests         : Started PetControllerTests in 0.818 seconds (process running for 66.063)
+[2024-06-20T16:01:54.254Z] [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.281 s -- in org.springframework.samples.petclinic.owner.PetControllerTests
+[2024-06-20T16:01:54.254Z] [INFO] Running org.springframework.samples.petclinic.owner.PetTypeFormatterTests
+[2024-06-20T16:01:54.254Z] [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.110 s -- in org.springframework.samples.petclinic.owner.PetTypeFormatterTests
+[2024-06-20T16:01:54.254Z] [INFO] Running org.springframework.samples.petclinic.owner.VisitControllerTests
+[2024-06-20T16:01:54.505Z] 2024-06-20T16:01:54.235Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.owner.VisitControllerTests]: VisitControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:54.505Z] 2024-06-20T16:01:54.268Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.owner.VisitControllerTests
+[2024-06-20T16:01:54.505Z] 2024-06-20T16:01:54.281Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:54.505Z] 
+[2024-06-20T16:01:54.505Z] 
+[2024-06-20T16:01:54.505Z]               |\      _,,,--,,_
+[2024-06-20T16:01:54.505Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:54.505Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:54.505Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:54.505Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:54.505Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:54.505Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:54.505Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:54.505Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:54.505Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:54.505Z] 
+[2024-06-20T16:01:54.505Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:54.505Z] 
+[2024-06-20T16:01:54.505Z] 
+[2024-06-20T16:01:54.505Z] 2024-06-20T16:01:54.353Z  INFO 2887 --- [           main] o.s.s.p.owner.VisitControllerTests       : Starting VisitControllerTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:54.505Z] 2024-06-20T16:01:54.354Z  INFO 2887 --- [           main] o.s.s.p.owner.VisitControllerTests       : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:55.056Z] 2024-06-20T16:01:54.807Z  INFO 2887 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+[2024-06-20T16:01:55.056Z] 2024-06-20T16:01:54.807Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+[2024-06-20T16:01:55.056Z] 2024-06-20T16:01:54.809Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[2024-06-20T16:01:55.056Z] 2024-06-20T16:01:54.826Z  INFO 2887 --- [           main] o.s.s.p.owner.VisitControllerTests       : Started VisitControllerTests in 0.544 seconds (process running for 67.204)
+[2024-06-20T16:01:55.306Z] [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.831 s -- in org.springframework.samples.petclinic.owner.VisitControllerTests
+[2024-06-20T16:01:55.306Z] [INFO] Running org.springframework.samples.petclinic.service.ClinicServiceTests
+[2024-06-20T16:01:55.306Z] 2024-06-20T16:01:55.089Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.service.ClinicServiceTests]: ClinicServiceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:55.306Z] 2024-06-20T16:01:55.132Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.service.ClinicServiceTests
+[2024-06-20T16:01:55.306Z] 2024-06-20T16:01:55.150Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:55.306Z] 
+[2024-06-20T16:01:55.306Z] 
+[2024-06-20T16:01:55.306Z]               |\      _,,,--,,_
+[2024-06-20T16:01:55.306Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:55.306Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:55.306Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:55.306Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:55.306Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:55.306Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:55.306Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:55.306Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:55.306Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:55.306Z] 
+[2024-06-20T16:01:55.306Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:55.306Z] 
+[2024-06-20T16:01:55.306Z] 
+[2024-06-20T16:01:55.306Z] 2024-06-20T16:01:55.209Z  INFO 2887 --- [           main] o.s.s.p.service.ClinicServiceTests       : Starting ClinicServiceTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:55.307Z] 2024-06-20T16:01:55.210Z  INFO 2887 --- [           main] o.s.s.p.service.ClinicServiceTests       : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:55.557Z] 2024-06-20T16:01:55.364Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-06-20T16:01:55.557Z] 2024-06-20T16:01:55.377Z  INFO 2887 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+[2024-06-20T16:01:55.557Z] 2024-06-20T16:01:55.473Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+[2024-06-20T16:01:55.557Z] 2024-06-20T16:01:55.490Z  INFO 2887 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn10: url=jdbc:h2:mem:3099d1e7-ce93-4878-bd39-5fdb88ad0530 user=SA
+[2024-06-20T16:01:55.557Z] 2024-06-20T16:01:55.490Z  INFO 2887 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+[2024-06-20T16:01:55.808Z] 2024-06-20T16:01:55.624Z  INFO 2887 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-06-20T16:01:55.808Z] 2024-06-20T16:01:55.634Z  INFO 2887 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+[2024-06-20T16:01:55.808Z] 2024-06-20T16:01:55.668Z  INFO 2887 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-06-20T16:01:56.359Z] 2024-06-20T16:01:56.111Z  INFO 2887 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-06-20T16:01:56.359Z] 2024-06-20T16:01:56.112Z  INFO 2887 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-06-20T16:01:56.359Z] 2024-06-20T16:01:56.304Z  INFO 2887 --- [           main] o.s.s.p.service.ClinicServiceTests       : Started ClinicServiceTests in 1.154 seconds (process running for 68.683)
+[2024-06-20T16:01:56.359Z] Hibernate: select v1_0.id,v1_0.first_name,v1_0.last_name from vets v1_0
+[2024-06-20T16:01:56.359Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.359Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.359Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.609Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.609Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.609Z] Hibernate: select s1_0.vet_id,s1_1.id,s1_1.name from vet_specialties s1_0 join specialties s1_1 on s1_1.id=s1_0.specialty_id where s1_0.vet_id=?
+[2024-06-20T16:01:56.609Z] Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+[2024-06-20T16:01:56.609Z] Hibernate: select p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,t1_0.id,t1_0.name from pets p1_0 left join types t1_0 on t1_0.id=p1_0.type_id where p1_0.owner_id=? order by p1_0.name
+[2024-06-20T16:01:56.609Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.609Z] Hibernate: select p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,t1_0.id,t1_0.name from pets p1_0 left join types t1_0 on t1_0.id=p1_0.type_id where p1_0.owner_id=? order by p1_0.name
+[2024-06-20T16:01:56.609Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.609Z] Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+[2024-06-20T16:01:56.609Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.609Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:56.609Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.609Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: insert into visits (visit_date,description,id) values (?,?,default)
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: update owners set address=?,city=?,first_name=?,last_name=?,telephone=? where id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:56.860Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 order by pt1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: insert into pets (birth_date,name,type_id,id) values (?,?,?,default)
+[2024-06-20T16:01:56.860Z] Hibernate: update pets set owner_id=? where id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+[2024-06-20T16:01:56.860Z] Hibernate: insert into owners (address,city,first_name,last_name,telephone,id) values (?,?,?,?,?,default)
+[2024-06-20T16:01:56.860Z] Hibernate: select distinct o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.last_name like ? escape ''
+[2024-06-20T16:01:56.860Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:56.860Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:56.860Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:57.111Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:57.111Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 where pt1_0.id=?
+[2024-06-20T16:01:57.111Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:57.111Z] Hibernate: select v1_0.pet_id,v1_0.id,v1_0.visit_date,v1_0.description from visits v1_0 where v1_0.pet_id=? order by v1_0.visit_date
+[2024-06-20T16:01:57.111Z] Hibernate: update pets set birth_date=?,name=?,type_id=? where id=?
+[2024-06-20T16:01:57.111Z] Hibernate: select o1_0.id,o1_0.address,o1_0.city,o1_0.first_name,o1_0.last_name,p1_0.owner_id,p1_0.id,p1_0.birth_date,p1_0.name,p1_0.type_id,o1_0.telephone from owners o1_0 left join pets p1_0 on o1_0.id=p1_0.owner_id where o1_0.id=? order by p1_0.name
+[2024-06-20T16:01:57.111Z] Hibernate: select pt1_0.id,pt1_0.name from types pt1_0 order by pt1_0.name
+[2024-06-20T16:01:57.111Z] [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.822 s -- in org.springframework.samples.petclinic.service.ClinicServiceTests
+[2024-06-20T16:01:57.111Z] [INFO] Running org.springframework.samples.petclinic.system.CrashControllerIntegrationTests
+[2024-06-20T16:01:57.111Z] 2024-06-20T16:01:56.953Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:57.111Z] 
+[2024-06-20T16:01:57.111Z] 
+[2024-06-20T16:01:57.111Z]               |\      _,,,--,,_
+[2024-06-20T16:01:57.111Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:57.111Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:57.111Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:57.111Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:57.111Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:57.111Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:57.111Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:57.111Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:57.111Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:57.111Z] 
+[2024-06-20T16:01:57.111Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:57.111Z] 
+[2024-06-20T16:01:57.111Z] 
+[2024-06-20T16:01:57.111Z] 2024-06-20T16:01:57.005Z  INFO 2887 --- [           main] .s.s.p.s.CrashControllerIntegrationTests : Starting CrashControllerIntegrationTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:57.111Z] 2024-06-20T16:01:57.005Z  INFO 2887 --- [           main] .s.s.p.s.CrashControllerIntegrationTests : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:01:58.022Z] 2024-06-20T16:01:57.927Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+[2024-06-20T16:01:58.022Z] 2024-06-20T16:01:57.930Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2024-06-20T16:01:58.022Z] 2024-06-20T16:01:57.930Z  INFO 2887 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+[2024-06-20T16:01:58.273Z] 2024-06-20T16:01:57.981Z  INFO 2887 --- [           main] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+[2024-06-20T16:01:58.273Z] 2024-06-20T16:01:57.981Z  INFO 2887 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 971 ms
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.005Z  INFO 2887 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 0 endpoints beneath base path '/actuator'
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.081Z  INFO 2887 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 34635 (http) with context path '/'
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.093Z  INFO 2887 --- [           main] .s.s.p.s.CrashControllerIntegrationTests : Started CrashControllerIntegrationTests in 2.139 seconds (process running for 71.471)
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.119Z  INFO 2887 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.119Z  INFO 2887 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.121Z  INFO 2887 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+[2024-06-20T16:01:59.185Z] 2024-06-20T16:01:59.132Z ERROR 2887 --- [o-auto-3-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Expected: controller used to showcase what happens when an exception is thrown] with root cause
+[2024-06-20T16:01:59.185Z] 
+[2024-06-20T16:01:59.185Z] java.lang.RuntimeException: Expected: controller used to showcase what happens when an exception is thrown
+[2024-06-20T16:01:59.185Z] 	at org.springframework.samples.petclinic.system.CrashController.triggerException(CrashController.java:33) ~[classes/:na]
+[2024-06-20T16:01:59.185Z] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+[2024-06-20T16:01:59.185Z] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+[2024-06-20T16:01:59.185Z] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+[2024-06-20T16:01:59.185Z] 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.24.jar:6.0]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.185Z] 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+[2024-06-20T16:01:59.185Z] 
+[2024-06-20T16:01:59.741Z] 2024-06-20T16:01:59.438Z ERROR 2887 --- [o-auto-3-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: Expected: controller used to showcase what happens when an exception is thrown] with root cause
+[2024-06-20T16:01:59.741Z] 
+[2024-06-20T16:01:59.741Z] java.lang.RuntimeException: Expected: controller used to showcase what happens when an exception is thrown
+[2024-06-20T16:01:59.741Z] 	at org.springframework.samples.petclinic.system.CrashController.triggerException(CrashController.java:33) ~[classes/:na]
+[2024-06-20T16:01:59.741Z] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+[2024-06-20T16:01:59.741Z] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+[2024-06-20T16:01:59.741Z] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+[2024-06-20T16:01:59.741Z] 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.24.jar:6.0]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+[2024-06-20T16:01:59.741Z] 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+[2024-06-20T16:01:59.741Z] 
+[2024-06-20T16:01:59.741Z] [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.767 s -- in org.springframework.samples.petclinic.system.CrashControllerIntegrationTests
+[2024-06-20T16:01:59.741Z] [INFO] Running org.springframework.samples.petclinic.system.CrashControllerTests
+[2024-06-20T16:01:59.992Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in org.springframework.samples.petclinic.system.CrashControllerTests
+[2024-06-20T16:01:59.992Z] [INFO] Running org.springframework.samples.petclinic.vet.VetControllerTests
+[2024-06-20T16:01:59.992Z] 2024-06-20T16:01:59.752Z  INFO 2887 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.springframework.samples.petclinic.vet.VetControllerTests]: VetControllerTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2024-06-20T16:01:59.992Z] 2024-06-20T16:01:59.780Z  INFO 2887 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.springframework.samples.petclinic.PetClinicApplication for test class org.springframework.samples.petclinic.vet.VetControllerTests
+[2024-06-20T16:01:59.992Z] 2024-06-20T16:01:59.790Z  INFO 2887 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+[2024-06-20T16:01:59.992Z] 
+[2024-06-20T16:01:59.992Z] 
+[2024-06-20T16:01:59.992Z]               |\      _,,,--,,_
+[2024-06-20T16:01:59.992Z]              /,`.-'`'   ._  \-;;,_
+[2024-06-20T16:01:59.992Z]   _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+[2024-06-20T16:01:59.992Z]  |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+[2024-06-20T16:01:59.992Z]  |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+[2024-06-20T16:01:59.992Z]  |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+[2024-06-20T16:01:59.992Z]  |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+[2024-06-20T16:01:59.992Z]  |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+[2024-06-20T16:01:59.992Z]  |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+[2024-06-20T16:01:59.992Z]  ==================================================================/_/_/_/
+[2024-06-20T16:01:59.992Z] 
+[2024-06-20T16:01:59.992Z] :: Built with Spring Boot :: 3.3.0
+[2024-06-20T16:01:59.992Z] 
+[2024-06-20T16:01:59.992Z] 
+[2024-06-20T16:01:59.992Z] 2024-06-20T16:01:59.830Z  INFO 2887 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : Starting VetControllerTests using Java 17.0.11 with PID 2887 (started by jenkins in /var/lib/jenkins/workspace/spring-petclinic)
+[2024-06-20T16:01:59.992Z] 2024-06-20T16:01:59.831Z  INFO 2887 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : No active profile set, falling back to 1 default profile: "default"
+[2024-06-20T16:02:00.543Z] 2024-06-20T16:02:00.256Z  INFO 2887 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+[2024-06-20T16:02:00.543Z] 2024-06-20T16:02:00.256Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+[2024-06-20T16:02:00.543Z] 2024-06-20T16:02:00.257Z  INFO 2887 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[2024-06-20T16:02:00.544Z] 2024-06-20T16:02:00.266Z  INFO 2887 --- [           main] o.s.s.petclinic.vet.VetControllerTests   : Started VetControllerTests in 0.476 seconds (process running for 72.644)
+[2024-06-20T16:02:00.794Z] [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.894 s -- in org.springframework.samples.petclinic.vet.VetControllerTests
+[2024-06-20T16:02:00.794Z] [INFO] Running org.springframework.samples.petclinic.vet.VetTests
+[2024-06-20T16:02:00.794Z] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.springframework.samples.petclinic.vet.VetTests
+[2024-06-20T16:02:02.138Z] [INFO] 
+[2024-06-20T16:02:02.138Z] [INFO] Results:
+[2024-06-20T16:02:02.138Z] [INFO] 
+[2024-06-20T16:02:02.138Z] [INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0
+[2024-06-20T16:02:02.138Z] [INFO] 
+[2024-06-20T16:02:02.138Z] [INFO] ------------------------------------------------------------------------
+[2024-06-20T16:02:02.138Z] [INFO] BUILD SUCCESS
+[2024-06-20T16:02:02.138Z] [INFO] ------------------------------------------------------------------------
+[2024-06-20T16:02:02.138Z] [INFO] Total time:  01:27 min
+[2024-06-20T16:02:02.138Z] [INFO] Finished at: 2024-06-20T16:02:01Z
+[2024-06-20T16:02:02.138Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withCredentials
+[2024-06-20T16:02:02.582Z] Masking supported pattern matches of $dockerpass
+[Pipeline] {
+[Pipeline] sh
+[2024-06-20T16:02:02.642Z] Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+[2024-06-20T16:02:02.643Z] 		 Affected argument(s) used the following variable(s): [dockerpass]
+[2024-06-20T16:02:02.643Z] 		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
+[2024-06-20T16:02:02.901Z] + docker login -u sribnr -p ****
+[2024-06-20T16:02:03.452Z] WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+[2024-06-20T16:02:03.703Z] WARNING! Your password will be stored unencrypted in /var/lib/jenkins/.docker/config.json.
+[2024-06-20T16:02:03.703Z] Configure a credential helper to remove this warning. See
+[2024-06-20T16:02:03.703Z] https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+[2024-06-20T16:02:03.703Z] 
+[2024-06-20T16:02:03.703Z] Login Succeeded
+[Pipeline] sh
+[2024-06-20T16:02:03.992Z] + docker build -t sribnr/spring-petclinic:latest .
+[2024-06-20T16:02:04.903Z] #0 building with "default" instance using docker driver
+[2024-06-20T16:02:04.903Z] 
+[2024-06-20T16:02:04.903Z] #1 [internal] load build definition from Dockerfile
+[2024-06-20T16:02:05.154Z] #1 transferring dockerfile: 501B 0.0s done
+[2024-06-20T16:02:05.154Z] #1 DONE 0.0s
+[2024-06-20T16:02:05.154Z] 
+[2024-06-20T16:02:05.154Z] #2 [auth] library/openjdk:pull token for registry-1.docker.io
+[2024-06-20T16:02:05.154Z] #2 DONE 0.0s
+[2024-06-20T16:02:05.154Z] 
+[2024-06-20T16:02:05.154Z] #3 [internal] load metadata for docker.io/library/openjdk:17-jdk-slim
+[2024-06-20T16:02:05.404Z] #3 DONE 0.3s
+[2024-06-20T16:02:05.404Z] 
+[2024-06-20T16:02:05.404Z] #4 [internal] load .dockerignore
+[2024-06-20T16:02:05.404Z] #4 transferring context: 2B done
+[2024-06-20T16:02:05.404Z] #4 DONE 0.0s
+[2024-06-20T16:02:05.404Z] 
+[2024-06-20T16:02:05.404Z] #5 [1/3] FROM docker.io/library/openjdk:17-jdk-slim@sha256:aaa3b3cb27e3e520b8f116863d0580c438ed55ecfa0bc126b41f68c3f62f9774
+[2024-06-20T16:02:05.404Z] #5 DONE 0.0s
+[2024-06-20T16:02:05.404Z] 
+[2024-06-20T16:02:05.404Z] #6 [internal] load build context
+[2024-06-20T16:02:05.955Z] #6 transferring context: 61.17MB 0.5s done
+[2024-06-20T16:02:05.955Z] #6 DONE 0.5s
+[2024-06-20T16:02:05.955Z] 
+[2024-06-20T16:02:05.955Z] #7 [2/3] WORKDIR /app
+[2024-06-20T16:02:05.955Z] #7 CACHED
+[2024-06-20T16:02:05.955Z] 
+[2024-06-20T16:02:05.956Z] #8 [3/3] COPY target/spring-petclinic-3.3.0-SNAPSHOT.jar /app/spring-petclinic-3.3.0-SNAPSHOT.jar
+[2024-06-20T16:02:06.867Z] #8 DONE 1.0s
+[2024-06-20T16:02:06.867Z] 
+[2024-06-20T16:02:06.867Z] #9 exporting to image
+[2024-06-20T16:02:06.867Z] #9 exporting layers
+[2024-06-20T16:02:07.118Z] #9 exporting layers 0.3s done
+[2024-06-20T16:02:07.118Z] #9 writing image sha256:0577b732909a4cc374b61962910adb4ddb19f74aaccd80188d02ade6a6f13eba done
+[2024-06-20T16:02:07.118Z] #9 naming to docker.io/sribnr/spring-petclinic:latest done
+[2024-06-20T16:02:07.118Z] #9 DONE 0.3s
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Push)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withCredentials
+[2024-06-20T16:02:07.530Z] Masking supported pattern matches of $dockerpass
+[Pipeline] {
+[Pipeline] sh
+[2024-06-20T16:02:07.826Z] + docker push sribnr/spring-petclinic:latest
+[2024-06-20T16:02:07.826Z] The push refers to repository [docker.io/sribnr/spring-petclinic]
+[2024-06-20T16:02:07.826Z] 6b843483e779: Preparing
+[2024-06-20T16:02:07.826Z] e305993c4ceb: Preparing
+[2024-06-20T16:02:07.826Z] 6be690267e47: Preparing
+[2024-06-20T16:02:07.827Z] 13a34b6fff78: Preparing
+[2024-06-20T16:02:07.827Z] 9c1b6dd6c1e6: Preparing
+[2024-06-20T16:02:08.077Z] 6be690267e47: Layer already exists
+[2024-06-20T16:02:08.077Z] 13a34b6fff78: Layer already exists
+[2024-06-20T16:02:08.077Z] e305993c4ceb: Layer already exists
+[2024-06-20T16:02:08.077Z] 9c1b6dd6c1e6: Layer already exists
+[2024-06-20T16:02:13.273Z] 6b843483e779: Pushed
+[2024-06-20T16:02:14.617Z] latest: digest: sha256:874c9e7194e442acfb8e7740feac537889ca08e4b6484f0a6eff240e4aa17add size: 1371
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
+[2024-06-20T16:02:15.165Z] + docker logout
+[2024-06-20T16:02:15.165Z] Removing login credentials for https://index.docker.io/v1/
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

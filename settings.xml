@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="https://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd" xmlns="https://maven.apache.org/SETTINGS/1.2.0"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>srikanthbandarub@gmail.com</username>
+      <password></password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>srikanthbandarub@gmail.com</username>
+      <password></password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <repositories>
+      <repository>
+        <id>jcenter-remote</id>
+        <name>JCenter Remote Repository</name>
+        <url>https://bnr.jfrog.io/artifactory/jcenter-remote</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        </repository>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>devops-libs-release</name>
+          <url>https://bnr.jfrog.io/artifactory/devops-libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>devops-libs-snapshot</name>
+          <url>https://bnr.jfrog.io/artifactory/devops-libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>devops-libs-release</name>
+          <url>https://bnr.jfrog.io/artifactory/devops-libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>devops-libs-snapshot</name>
+          <url>https://bnr.jfrog.io/artifactory/devops-libs-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>

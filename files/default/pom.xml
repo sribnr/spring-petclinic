@@ -442,5 +442,16 @@
       </build>
     </profile>
   </profiles>
-
+  <distributionManagement>
+    <repository>
+        <id>snapshots</id>
+        <name>a0vxye7wyfomh-artifactory-primary-0-release</name>
+        <url>https://bnr.jfrog.io/artifactory/devops-libs-release</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0vxye7wyfomh-artifactory-primary-0-snapshots</name>
+        <url>https://bnr.jfrog.io/artifactory/devops-libs-snapshot</url>
+    </snapshotRepository>
+</distributionManagement>
 </project>
